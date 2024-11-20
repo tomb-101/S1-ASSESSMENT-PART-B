@@ -20,7 +20,8 @@ The function will also update the inventory_records (For restocking) for a  give
 
     '''
     sold_today=random.randint(1, 200)
-    if current_day%7==1:
-        inventory_records[2]=0
+    if current_day%7!=0 and (available_items>0 or available_items==2000):
         available_items-=sold_today
+        contain=(current_day, sold_today, 0, available_items)
+        inventory_records.append(contain)
     return available_items
