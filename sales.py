@@ -19,9 +19,9 @@ available_items:(integer) This function returns this integer which updates the a
 The function will also update the inventory_records (For restocking) for a  given current day. 
 
     '''
-    sold_today=random.randint(1, 200)
-    if current_day%7!=0 and (available_items>0 or available_items==2000):
-        available_items-=sold_today
+    sold_today=random.randint(1, 200) # select random number of sales for the day
+    if current_day%7!=0 and (available_items>0 or available_items==2000): # if day is normal weekday
+        available_items-=sold_today # subtract sales from current stock
         contain=(current_day, sold_today, 0, available_items)
-        inventory_records.append(contain)
+        inventory_records.append(contain) 
     return available_items

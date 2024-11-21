@@ -17,11 +17,11 @@ available_items:(integer) This function returns this integer which updates the a
 
 The function will also update the inventory_records (For restocking) for a  given current day. It will also return "available_items".
     '''
-    if current_day==0:
+    if current_day==0: # if day is zero, append initial tuple and set available items to 2000
         container=(current_day, 0, 2000, 2000)
         available_items=2000
         inventory_records.append(container)
-    elif current_day%7==0:
+    elif current_day%7==0: # if day is multiple of 7 (end of week), restock and set available items to 2000
         container=(current_day, 0, 2000-available_items, 2000)
         available_items=2000
         inventory_records.append(container)
